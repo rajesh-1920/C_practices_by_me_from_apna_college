@@ -17,6 +17,17 @@ void max_to_i(ll a[], ll n)
     }
     cout << '\n';
 }
+ll sum_of_all_subarray(ll a[], ll n)
+{
+    ll sum = 0;
+    for (ll i = 0; i < n; i++)
+    {
+        ll t = n - i;
+        sum += a[i] * t;
+        sum += a[i] * t * (i);
+    }
+    return sum;
+}
 void solve(void)
 {
     ll n;
@@ -24,7 +35,8 @@ void solve(void)
     ll a[n];
     for (ll i = 0; i < n; i++)
         cin >> a[i];
-    max_to_i(a, n);
+    // max_to_i(a, n);
+    cout << sum_of_all_subarray(a, n) << '\n';
 }
 //------------------------------------------------------------------------------------------
 int main()
