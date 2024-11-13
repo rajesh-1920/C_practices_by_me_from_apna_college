@@ -41,14 +41,59 @@ ll hexca_to_decimal(string hexa)
     return dec;
 }
 //------------------------------------------------------------------------------------------
+string decimal_to_binary(ll dec)
+{
+    string bin;
+    if (dec == 0)
+        bin.push_back('0');
+    while (dec)
+    {
+        bin += to_string(dec % 2);
+        dec >>= 1;
+    }
+    reverse(bin.begin(), bin.end());
+    return bin;
+}
+string decimal_to_octal(ll dec)
+{
+    string bin;
+    if (dec == 0)
+        bin.push_back('0');
+    while (dec)
+    {
+        bin += to_string(dec % 8);
+        dec /= 8;
+    }
+    reverse(bin.begin(), bin.end());
+    return bin;
+}
+string decimal_to_hexa(ll dec)
+{
+    string bin;
+    if (dec == 0)
+        bin.push_back('0');
+    while (dec)
+    {
+        if (dec % 16 < 10)
+            bin += to_string(dec % 16);
+        else
+            bin.push_back((char)('A' + dec % 16 - 10));
+        dec /= 16;
+    }
+    reverse(bin.begin(), bin.end());
+    return bin;
+}
 //------------------------------------------------------------------------------------------
 void solve(void)
 {
-    string n;
+    ll n;
     cin >> n;
     // cout << binary_to_decimal(n) << '\n';
     // cout << octal_to_decimal(n) << '\n';
     // cout << hexca_to_decimal(n) << '\n';
+    // cout << decimal_to_binary(n) << '\n';
+    // cout << decimal_to_octal(n) << '\n';
+    cout << decimal_to_hexa(n) << '\n';
 }
 //------------------------------------------------------------------------------------------
 int main()
