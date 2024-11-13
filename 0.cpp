@@ -5,6 +5,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long int
+#define dbg(x) cout << #x << " = " << x << '\n'
 //------------------------------------------------------------------------------------------
 void solve(void)
 {
