@@ -6,13 +6,23 @@
 using namespace std;
 #define ll long long int
 //------------------------------------------------------------------------------------------
+ll binary_to_decimal(ll bin)
+{
+    ll dec = 0, p = 1;
+    while (bin)
+    {
+        dec += p * (bin % 10);
+        p *= 2;
+        bin /= 10;
+    }
+    return dec;
+}
+
 void solve(void)
 {
     ll n;
     cin >> n;
-    vector<ll> v(n);
-    for (auto &it : v)
-        cin >> it;
+    cout << binary_to_decimal(n) << '\n';
 }
 //------------------------------------------------------------------------------------------
 int main()
