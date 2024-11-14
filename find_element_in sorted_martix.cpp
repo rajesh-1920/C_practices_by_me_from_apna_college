@@ -9,11 +9,28 @@ using namespace std;
 //------------------------------------------------------------------------------------------
 void solve(void)
 {
-    ll n;
-    cin >> n;
-    vector<ll> v(n);
-    for (auto &it : v)
-        cin >> it;
+    ll n, m;
+    cin >> n >> m;
+    ll a[n + 1][m + 1];
+    for (ll i = 1; i <= n; i++)
+        for (ll j = 1; j <= m; j++)
+            cin >> a[i][j];
+    ll tar;
+    cin >> tar;
+    ll r = 1, c = m;
+    while (r <= n && c > 0)
+    {
+        if (a[r][c] == tar)
+        {
+            cout << r << ' ' << c;
+            return;
+        }
+        if (a[r][c] > tar)
+            c--;
+        else
+            r++;
+    }
+    cout << "NOT FOUND\n";
 }
 //------------------------------------------------------------------------------------------
 int main()
